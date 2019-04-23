@@ -1,7 +1,7 @@
 #pragma once
 #include "Position.h"
 
-typedef enum sex{m, f};
+enum sex{m, f};
 
 class Wolf {
 private:

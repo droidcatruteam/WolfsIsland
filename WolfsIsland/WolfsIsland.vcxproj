@@ -156,7 +156,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Position.h" />
-    <ClInclude Include="Sheep.h" />
+    <ClInclude Include="Rabbit.h" />
     <ClInclude Include="Wolf.h" />
   </ItemGroup>
   <ItemGroup>
@@ -170,7 +170,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Position.cpp" />
-    <ClCompile Include="Sheep.cpp" />
+    <ClCompile Include="Rabbit.cpp" />
     <ClCompile Include="Wolf.cpp" />
     <ClCompile Include="WolfsIsland.cpp" />
   </ItemGroup>

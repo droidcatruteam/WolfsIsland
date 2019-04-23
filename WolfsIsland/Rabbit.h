@@ -1,12 +1,12 @@
 #pragma once
 #include "Position.h"
 
-class Sheep {
+class Rabbit {
 private:
 	Position pos;
 public:
 	Position getpos();
-	Sheep();
-	~Sheep();
+	Rabbit();
+	~Rabbit();
 };
 
