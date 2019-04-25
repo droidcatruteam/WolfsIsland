@@ -10,6 +10,22 @@ Cell::Cell(int x, int y) {
 
 Cell::~Cell() {}
 
+void Cell::setEmpty() {
+	stat = empty;
+}
+
+void Cell::setWolfM() {
+	stat = wolfm;
+}
+
+void Cell::setWolfF() {
+	stat = wolff;
+}
+
+void Cell::setRabbit() {
+	stat = rabbit;
+}
+
 char Cell::getStatus() {
 	switch (stat) {
 	case empty:
@@ -21,8 +37,8 @@ char Cell::getStatus() {
 	case wolff:
 		return 'F';
 		break;
-	case sheep:
-		return 'S';
+	case rabbit:
+		return 'R';
 		break;
 	default:
 		return '+';

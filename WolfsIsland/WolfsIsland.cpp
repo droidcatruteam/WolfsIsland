@@ -2,16 +2,20 @@
 #include <iostream>
 #include <ctime>
 #include "Game.h"
+#include <random>
+#include "Utils.h"
+
 using namespace std;
 
 int main() {
-	time_t t;
-	t = clock();
+	//time_t t;
+	srand((int)time(NULL));
+	//t = clock();
 	bool exit = false;
-	int speed = 1; //steps per second
+	//float speed = 1; //steps per second
 	Game game;
 
-	cout << "Enter game speed: ";
+	/*cout << "Enter game speed: ";
 	cin >> speed;
 	
 	while (!exit) {
@@ -20,5 +24,9 @@ int main() {
 			game.showboard();
 			t = clock();
 		}
+	}*/
+	while (!exit) {
+		game.makestep();
+		game.showboard();
 	}
 }

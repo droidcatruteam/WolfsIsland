@@ -1,7 +1,6 @@
 #pragma once
 #include "Position.h"
-
-enum status {empty, wolfm, wolff, sheep};
+#include "Utils.h"
 
 class Cell {
 private:
@@ -9,6 +8,10 @@ private:
 	status stat;
 public:
 	char getStatus();
+	void setWolfM();
+	void setWolfF();
+	void setRabbit();
+	void setEmpty();
 	Cell(int x, int y);
 	~Cell();
 };

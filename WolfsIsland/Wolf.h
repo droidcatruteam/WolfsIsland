@@ -1,18 +1,20 @@
 #pragma once
 #include "Position.h"
-
-enum sex{m, f};
+#include "Utils.h"
 
 class Wolf {
 private:
 	Position pos;
 	sex wolfSex;
-	float hp;
+	int hp;
 public:
+	void setPos(Position p);
+	void increaseHp();
+	void decreaseHp();
 	Position getpos();
 	sex getSex();
 	float getHp();
-	Wolf();
+	Wolf(int x, int y, sex s);
 	~Wolf();
 };
 
