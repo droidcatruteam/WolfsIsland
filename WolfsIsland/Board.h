@@ -13,11 +13,11 @@ private:
 	vector<Wolf> wolfs;
 	vector<Rabbit> rabbits;
 public:
-	bool newWolf(Wolf wolf);
-	Position moveWolf(Wolf wolf);
+	bool newWolf(Wolf &wolf);
+	Position moveWolf(Wolf &wolf);
 	void moveWolfs();
-	bool newRabbit(Rabbit rabbit);
-	Position moveRabbit(Rabbit rabbit);
+	bool newRabbit(Rabbit &rabbit);
+	Position moveRabbit(Rabbit &rabbit);
 	void moveRabbits();
 	void reproductRabbits();
 	void show(int steps);

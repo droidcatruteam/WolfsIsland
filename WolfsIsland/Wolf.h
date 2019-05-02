@@ -11,6 +11,7 @@ public:
 	void setPos(Position p);
 	void increaseHp();
 	void decreaseHp();
+	void setHp(int h);
 	Position getpos();
 	sex getSex();
 	float getHp();

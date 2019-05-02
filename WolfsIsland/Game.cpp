@@ -10,9 +10,9 @@ Game::Game() {
 Game::~Game() {}
 
 void Game::makestep() {
-	gameboard.moveWolfs();
-	gameboard.show(stepsCount);
 	gameboard.moveRabbits();
+	gameboard.show(stepsCount);
+	gameboard.moveWolfs();
 	//gameboard.show(stepsCount);
 	//gameboard.reproductRabbits();
 	stepsCount++;

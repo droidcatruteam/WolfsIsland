@@ -15,11 +15,21 @@ void Cell::setEmpty() {
 }
 
 void Cell::setWolfM() {
-	stat = wolfm;
+	if (stat == wolff) {
+		stat = wolffm;
+	}
+	else {
+		stat = wolfm;
+	}
 }
 
 void Cell::setWolfF() {
-	stat = wolff;
+	if (stat == wolfm) {
+		stat = wolffm;
+	}
+	else {
+		stat = wolff;
+	}
 }
 
 void Cell::setRabbit() {
@@ -30,6 +40,9 @@ char Cell::getStatus() {
 	switch (stat) {
 	case empty:
 		return '+';
+		break;
+	case wolffm:
+		return 'S';
 		break;
 	case wolfm:
 		return 'M';

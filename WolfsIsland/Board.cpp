@@ -15,7 +15,7 @@ Board::Board() {
 		}
 		field.push_back(column);
 	}
-	for (int i = 0; i <= 4; i++) {
+	for (int i = 0; i < 5; i++) {
 		int x = rand() % FIELDSIZE;
 		int y = rand() % FIELDSIZE;
 		sex s = (sex)(rand() % 2);
@@ -24,7 +24,7 @@ Board::Board() {
 			i--;
 		}
 	}
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 10; i++) {
 		int x = rand() % FIELDSIZE;
 		int y = rand() % FIELDSIZE;
 		Rabbit rabbit(x, y);
@@ -36,7 +36,7 @@ Board::Board() {
 
 Board::~Board() {}
 
-bool Board::newWolf(Wolf wolf) {
+bool Board::newWolf(Wolf &wolf) {
 	int x = wolf.getpos().x;
 	int y = wolf.getpos().y;
 	if (x >= 0 && y >= 0 && x <= FIELDSIZE && y <= FIELDSIZE && field.at(x).at(y).getStatus() == '+') {
@@ -52,7 +52,7 @@ bool Board::newWolf(Wolf wolf) {
 	return false;
 }
 
-bool Board::newRabbit(Rabbit rabbit) {
+bool Board::newRabbit(Rabbit &rabbit) {
 	int x = rabbit.getpos().x;
 	int y = rabbit.getpos().y;
 	if (x >= 0 && y >= 0 && x <= FIELDSIZE && y <= FIELDSIZE && field.at(x).at(y).getStatus() == '+') {
@@ -63,7 +63,7 @@ bool Board::newRabbit(Rabbit rabbit) {
 	return false;
 }
 
-Position Board::moveRabbit(Rabbit rabbit) {
+Position Board::moveRabbit(Rabbit &rabbit) {
 	Position pos = rabbit.getpos();
 	int x = rabbit.getpos().x;
 	int y = rabbit.getpos().y;
@@ -130,8 +130,6 @@ void Board::moveRabbits() {
 	for (int i = 0; i < rabbits.size(); i++) {
 		if (rand() % 9 != 0) {
 			rabbits.at(i).setPos(moveRabbit(rabbits.at(i)));
-			int x = rabbits.at(i).getpos().x;
-			int y = rabbits.at(i).getpos().y;
 		}
 		if (rand() % 5 == 0) {
 			Rabbit r = rabbits.at(i);
@@ -158,7 +156,7 @@ void Board::reproductRabbits() {
 	}
 }
 
-Position Board::moveWolf(Wolf wolf) {
+Position Board::moveWolf(Wolf &wolf) {
 	Position pos = wolf.getpos();
 	int x = wolf.getpos().x;
 	int y = wolf.getpos().y;
@@ -206,8 +204,24 @@ Position Board::moveWolf(Wolf wolf) {
 
 	int p = rand() % query.size();
 	for (int i = 0; i < query.size(); i++) {
-		if (field.at(query.at(p).getpos().x).at(query.at(p).getpos().y).getStatus() == 'R') {
+		if (field.at(query.at(i).getpos().x).at(query.at(i).getpos().y).getStatus() == 'R' && wolf.getHp() <= 15) {
 			p = i;
+			break;
+		}
+		else if (field.at(query.at(i).getpos().x).at(query.at(i).getpos().y).getStatus() == 'M' && wolf.getSex() == f && wolf.getHp() > 15) {
+			return wolf.getpos();
+		}
+		else if (field.at(query.at(i).getpos().x).at(query.at(i).getpos().y).getStatus() == 'F' && wolf.getSex() == m && wolf.getHp() > 15) {
+			p = i;
+			for (int g = 0; g < wolfs.size(); g++) {
+				if (wolfs.at(g).getpos().x == query.at(i).getpos().x && wolfs.at(g).getpos().y == query.at(i).getpos().y) {
+					wolfs.at(g).setHp(15);
+					wolf.setHp(15);
+				}
+			}
+			Wolf w(query.at(i).getpos().x, query.at(i).getpos().y, (sex)(rand() % 2));
+			newWolf(w);
+			moveWolf(w);
 			break;
 		}
 	}

@@ -5,16 +5,25 @@ Wolf::Wolf(int x, int y, sex s) {
 	pos.x = x;
 	pos.y = y;
 	wolfSex = s;
-	hp = 10;
+	hp = 15;
 }
 Wolf::~Wolf() {}
 
 void Wolf::increaseHp() {
-	hp += 10;
+	if (hp <= 20) {
+		hp += 10;
+	}
+	else {
+		hp = 30;
+	}
 }
 
 void Wolf::decreaseHp() {
 	hp = hp - 1;
+}
+
+void Wolf::setHp(int h) {
+	hp = h;
 }
 
 void Wolf::setPos(Position p) {

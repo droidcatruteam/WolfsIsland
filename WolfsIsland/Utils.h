@@ -5,7 +5,7 @@
 #include <windows.h>
 #include <algorithm>
 
-#define FIELDSIZE 6
+#define FIELDSIZE 20
 
 #define BLACK 0
 #define BLUE 1
@@ -25,4 +25,4 @@
 #define WHITE 15
 
 enum sex { m, f };
-enum status { empty, wolfm, wolff, rabbit };
+enum status { empty, wolfm, wolff, rabbit, wolffm };
