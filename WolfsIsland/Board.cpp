@@ -15,7 +15,7 @@ Board::Board() {
 		}
 		field.push_back(column);
 	}
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 10; i++) {
 		int x = rand() % FIELDSIZE;
 		int y = rand() % FIELDSIZE;
 		sex s = (sex)(rand() % 2);
